@@ -146,7 +146,7 @@ elif menu == 'b' :
 else :
     print("피자를 선택하였습니다.")
 
-# 3.21
+# 3.21 (1)
 n = int(input("숫자를 입력하세요 : "))
 
 if n == 2:
@@ -165,6 +165,27 @@ else:
         print('{}는 소수가 아닙니다'.format(n))
     else:
         print('{}는 소수입니다'.format(n))
+
+# 3.21 (2)
+
+num = int(input("숫자를 입력하세요 : "))
+
+if num == 2 or num == 3 :
+    print("{}는 소수입니다.".format(num))
+elif num % 2 == 0 :
+    print("{}는 소수가 아닙니다".format(num))
+else :
+    for i in range(3, num, 2):
+        if num % i != 0 :
+            a = 'prime'
+        else  :
+            a = 'notprime'
+            break
+
+if a == 'prime' :
+    print("{}는 소수입니다.".format(num))
+else :
+    print("{}는 소수가 아닙니다.".format(num))
 
 # 3.23
 n = int(input('숫자를 입력하세요 : '))
