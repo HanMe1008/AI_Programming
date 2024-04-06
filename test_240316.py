@@ -31,7 +31,7 @@ for m in ["사과", "배", "복숭아", "자몽", "캐슈넛"]:
 for _ in range(100) :
     print("I like you")
 
-# 
+# #
 numbers = [11, 22, 33, 44, 55, 66]
 
 for n in numbers :

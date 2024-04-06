@@ -81,6 +81,7 @@ elif (a!=2 and b==3 and c!=9) :
 else :
     print("다음 기회에...")
 
+#
 # 3.11 (리스트 활용)
 a = input("세 복권번호를 입력하시오 : ").split()
 
