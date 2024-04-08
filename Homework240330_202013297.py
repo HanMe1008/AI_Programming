@@ -115,7 +115,6 @@ for s in s_list:
 print('s_list =', s_list)
 print('new_s_list =', new_s_list)
 
-<<<<<<< HEAD
 # 5.21
 src = 'a2b3c6a2c3f1g1'
 
@@ -126,11 +125,6 @@ for ch in src:
   else:
     ch_old = ch
 
-=======
-# 5.21 (모르겠습니다. 질문하기)
-src = 'a2b3c6a2c3f1g1'
-
->>>>>>> aadf8430495a5740d27f6f6bbf99cac0a0d397f6
 # 5.23(1)
 # [이름, 나이, 성별(남자=1), 키, 몸무게]
 person1 = ['온달', 20, 1, 180.0, 100.0]
