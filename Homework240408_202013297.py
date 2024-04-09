@@ -159,7 +159,7 @@ class Rectangle:
         return self.__width
     
     def area(self):
-        return self.__width * self.__height / 2
+        return self.__width * self.__height
     
     def overlaps(self, other):
         for i in range(self.__x, self.__x + self.__width + 1):
@@ -175,10 +175,73 @@ class Rectangle:
     def contains(self, other):
         for j in range(other.__x, other.__x + other.__width + 1):
             for m in range(other.__y, other.__y + other.__height + 1):
-                if j >= self.__x and j <= self.__x + self.width and m >= self.__y and m <= self.__y + self.__height:
-                    return True
+                if j >= self.__x and j <= self.__x + self.__width and m >= self.__y and m <= self.__y + self.__height:
+                    pass
                 else:
                     return False
+        return True
+    
+r1 = Rectangle(0, 0, 100, 100)
+r2 = Rectangle(0, -10, 10, 10)
+r3 = Rectangle(-100, 0, 120, 100)
+
+print('r1 =', r1)
+print('r2 =', r2)
+print('r3 =', r3)
+
+print('r1 contains r2 :', r1.contains(r2))
+print('r1 contains r3 :', r1.contains(r3))
+print('r1 overlaps r2 :', r1.overlaps(r2))
+print('r1 overlaps r3 :', r1.overlaps(r3))
+
+
+# 9.13 (기준을 좌측 상단으로 수정하여 코드 작성해보자)
+class Rectangle:
+    def __init__(self, x, y, width, height):
+        self.__x = x
+        self.__y = y
+        self.__width = width
+        self.__height = height
+
+    def __str__(self):
+        return "(x = {}, y = {}, w = {}, h = {}), 면적 : {}".format(self.__x, self.__y, self.__width, self.__height, self.area())
+
+    # 게터/세터 설정
+    def set_x(self, value):
+        self.__x = value
+    def get_x(self):
+        return self.__x
+    def set_y(self, value):
+        self.__y = value
+    def get_y(self):
+        return self.__y
+    def set_width(self, value):
+        self.__width = value
+    def get_width(self):
+        return self.__width
+    
+    def area(self):
+        return self.__width * self.__height
+    
+    def overlaps(self, other):
+        for i in range(self.__x, self.__x + self.__width + 1):
+            for j in range(other.__x, other.__x + other.__width + 1):
+                if i == j:
+                    return True
+        for n in range(self.__height, self.__y + self.__height + 1):
+            for m in range(other.__y, other.__y + other.__height + 1):
+                if n == m:
+                    return True
+        return False
+    
+    def contains(self, other):
+        for j in range(other.__x, other.__x + other.__width + 1):
+            for m in range(other.__height, other.__y + other.__height + 1):
+                if ( j >= self.__x and j <= self.__x + self.__width ) and ( m >= self.__height and m <= self.__y + self.__height ):
+                    pass
+                else:
+                    return False 
+        return True
 
 r1 = Rectangle(0, 0, 100, 100)
 r2 = Rectangle(0, -10, 10, 10)
