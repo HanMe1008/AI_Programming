@@ -255,3 +255,30 @@ print('r1 contains r2 :', r1.contains(r2))
 print('r1 contains r3 :', r1.contains(r3))
 print('r1 overlaps r2 :', r1.overlaps(r2))
 print('r1 overlaps r3 :', r1.overlaps(r3))
+
+# 추가문제 6번 (정답 3번)
+class Car:
+    def method(self):
+        print("슈퍼 클래스")
+
+class Sedan(Car):
+    def method(self):
+        print("서브 클래스")
+
+myCar = Car()
+mySedan = Sedan()
+myCar.method()
+mySedan.method()
+
+# 추가문제 7번
+class Car:
+    speed = 0
+
+    def upSpeed(self, value):
+        self.speed = self.speed + value
+
+class RVCar(Car):
+    seatNum = 0
+
+    def getSeatNum(self):
+        return self.seatNum
