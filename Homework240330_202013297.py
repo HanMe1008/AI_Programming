@@ -58,6 +58,7 @@ n_list = list(map(int, input("5개의 수를 입력하세요:").split()))
 
 # 오류 - TypeError: 'int' object is not callable
 # 앞선 문제에서 sum과 max를 변수로 사용하여 오류가 발생했음
+# 앞으로는 sum 대신 total, max 대신 max_num을 쓰자 !
 # 변수를 제거함으로써 오류 해결
 del sum
 del max
@@ -115,7 +116,7 @@ for s in s_list:
 print('s_list =', s_list)
 print('new_s_list =', new_s_list)
 
-# 5.21
+# aabbbccccccaacccfg 출력
 src = 'a2b3c6a2c3f1g1'
 
 for ch in src:
@@ -172,4 +173,4 @@ def display_persons(person_list):
     print(person_list[10:15])
     print(person_list[15:20])
 
-display_persons(person_list)
+display_persons(person_list)9
