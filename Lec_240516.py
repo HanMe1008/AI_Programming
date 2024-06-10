@@ -15,8 +15,10 @@ s=svm.SVC(gamma=0.1, C=10) # C=10 이면 완전히 맞다(?)
 s.fit(digit.data, digit.target) # digit 데이터로 모델링
 
 # 훈련 집합의 앞에 있는 샘플 3개를 새로운 샘플로 간주하고 인식해봄
-new_d=[digit.data[0], digit.data[1], digit.data[2]]
+new_d=[digit.data[0]]
 print(new_d)
+
+
 res = s.predict(new_d)
 print("예측값은", res)
 print("참값은", digit.target[0], digit.target[1], digit.target[2])
@@ -25,11 +27,10 @@ print("참값은", digit.target[0], digit.target[1], digit.target[2])
 res = s.predict(digit.data)
 correct = [i for i in range(len(res)) if res[i]==digit.target[i]]
 accuracy=len(correct)/len(res)
-#print(correct)
 print("화소 특징을 사용했을 때 정확률=", accuracy*100, "%")
 
-#print(len(res))
 
+"""
 # 그림 그리기
 
 import matplotlib.pyplot as plt
@@ -43,7 +44,7 @@ print("이 숫자는 ", digit.target[0], "입니다.")
 
 
 # 인공신경망에선 검증 집합이 중요하다 overfit(오버피팅)하지 않기 위해
-
+"""
 """
 #
 from sklearn import datasets
@@ -105,25 +106,3 @@ accuracy=len(correct)/len(res)
 print("화소 특징을 사용했을 때 정확률=", accuracy*100, "%")
 """
 
-import cv2
-import numpy as np
-import subprocess
-
-# Step 1: 이미지 읽기 및 이진화
-def preprocess_image(image_path):
-    # 이미지 읽기
-    image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
-    # 이진화
-    _, binary_image = cv2.threshold(image, 128, 255, cv2.THRESH_BINARY_INV)
-    # 이진화된 이미지 저장
-    cv2.imwrite('binary_image.pbm', binary_image)
-
-# Step 2: Potrace를 사용하여 벡터화
-def convert_to_vector():
-    # Potrace 명령어 실행
-    subprocess.run(['potrace', 'binary_image.pbm', '--svg', '-o', 'output.svg'])
-
-# 실행
-image_path = 'no1.png'  # 손글씨 이미지 경로
-preprocess_image(image_path)
-convert_to_vector()
